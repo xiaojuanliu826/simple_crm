@@ -1,10 +1,23 @@
-<nav>
-  <%= link_to 'All Customers', root_path %> |
-  <%= link_to 'Alphabetized', alphabetized_customers_path %> |
-  <%= link_to 'Missing Email', missing_email_customers_path %>
-</nav>
-<h1>Customer List</h1>
-<div class="customers-container">
-  <%= render @customers %>
-  <%# Rails look for _customer.html.erb and render @customers collection %>
-</div>
+<section class="section">
+  <div class="container">
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        <li class="<%= 'is-active' if current_page?(root_path) %>">
+          <%= link_to 'All Customers', root_path %>
+        </li>
+        <li class="<%= 'is-active' if current_page?(alphabetized_customers_path) %>">
+          <%= link_to 'Alphabetized', alphabetized_customers_path %>
+        </li>
+        <li class="<%= 'is-active' if current_page?(missing_email_customers_path) %>">
+          <%= link_to 'Missing Email', missing_email_customers_path %>
+        </li>
+      </ul>
+    </nav>
+
+    <h1 class="title has-text-centered">CRM Customer List</h1>
+
+    <div class="columns is-multiline">
+      <%= render @customers %>
+    </div>
+  </div>
+</section>
