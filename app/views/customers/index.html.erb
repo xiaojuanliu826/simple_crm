@@ -1,0 +1,10 @@
+<nav>
+  <%= link_to 'All Customers', root_path %> |
+  <%= link_to 'Alphabetized', alphabetized_customers_path %> |
+  <%= link_to 'Missing Email', missing_email_customers_path %>
+</nav>
+<h1>Customer List</h1>
+<div class="customers-container">
+  <%= render @customers %>
+  <%# Rails look for _customer.html.erb and render @customers collection %>
+</div>
